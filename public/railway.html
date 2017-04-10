@@ -1,0 +1,79 @@
+<html >
+
+<script src="ang.js">
+
+</script>
+<style >
+	div
+	{ }
+	marquee,a,h3{
+		color: white;
+	}
+</style>
+<body background="image\t1.jpg">
+
+<div ng-app="myApp" ng-controller="myctrl" ng-model="pnrstatus">
+<marquee>
+<h1> TRAIN STATUS </h1>
+</marquee>
+
+
+<a href="tamplets\pnr.html" >Press If You Want To Know About Pnr</a>
+
+
+</br>
+
+<br>
+
+<h3>ENTER THE TRAIN NUMBER</h3>
+<input type="text" ng-model="trainnumber">
+
+{{trainnumber}}
+<button ng-click='sayHello()'>train</button>
+
+<br>
+<h3>train-name  -		{{mywelcome.train.name}}</h3>
+
+<h3>train-number  -		{{mywelcome.train.number}}</h3>
+
+
+<marquee>
+<h1> Creater of the website is </h1>
+
+</marquee>
+<img src="image\rishab.jpg ">
+
+</div>
+
+
+<script>
+
+var app=angular.module('myApp',[]);
+app.controller('myctrl',function ($scope,$http,$log) {
+$scope.trainnumber='12149';		
+
+ $scope.sayHello = function() {
+    $scope.greeting = $scope.trainnumber ;
+$http({
+
+method:'GET',
+
+url:' http://api.railwayapi.com/route/train/'+$scope.greeting+'/apikey/remavewv/'})
+.then(function(response)
+{
+$scope.mywelcome=response.data;
+});
+
+
+};
+
+
+
+});
+
+</script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,57 @@
+<html>
+<script src="C:\Users\Rishabh\Desktop\railway\ang.js">
+
+</script>
+<style >
+	div
+	{ background-color: red; }
+</style>
+<body >
+
+<div ng-app="myApp" ng-controller="myctrl" ng-model="pnrstatus">
+<marquee>
+<h1> TRAIN STATUS BY RISHABH GUPTA</h1>
+</marquee>
+<input type="text" ng-model="trainnumber">
+
+{{trainnumber}}
+<button ng-click='sayHello()'>train</button>
+
+<br>
+<h3>train-name  -		{{mywelcome.train_name}}</h3>
+
+<h3>train-number  -		{{mywelcome.train_num}}</h3>
+
+
+<h3>train-pnr  -		{{mywelcome}}</h3>
+
+</div>
+
+
+<script>
+
+var app=angular.module('myApp',[]);
+app.controller('myctrl',function ($scope,$http,$log) {
+$scope.trainnumber='1234567890';		
+
+ $scope.sayHello = function() {
+    $scope.greeting = $scope.trainnumber ;
+  
+$http({
+
+method:'GET',
+
+url:' http://api.railwayapi.com/pnr_status/pnr/'+$scope.greeting+'/apikey/remavewv/'})
+.then(function(response)
+{
+$scope.mywelcome=response.data;
+});
+};
+});
+
+</script>
+
+</body>
+
+
+</html>
