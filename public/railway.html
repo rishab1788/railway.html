@@ -19,18 +19,7 @@
       version    : 'v2.9'
     });
     FB.AppEvents.logPageView();
- 	
-FB.getLoginStatus(function (responce){
-if(responce.status==='connected'){
-document.getElementById('status').innerHtml='we are connected.';}
-	elseif(responce.status==='not_authorized'){
-document.getElementById('status').innerHtml='we are not connected.';}
-else{
-document.getElementById('status').innerHtml='we are not logged in.';}
 
-
-});	  
-  
   };
 
   (function(d, s, id){
