@@ -45,7 +45,7 @@ document.getElementById('status').innerHtml='we are not logged in.';}
 
 	function login()
 	{
-	FB.login(function(resonse)
+	FB.login(function(response)
 		 {if(response.status==='connected'){
 document.getElementById('status').innerHtml='we are connected.';}
 else if(response.status==='not_authorized')
