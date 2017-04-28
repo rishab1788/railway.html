@@ -61,8 +61,7 @@ function getInfo()
 {
 FB.api('/me','get',{fields:'first_name,last_name,name,id'},function(response){
   document.getElementById('status').innerHtml=response.id;}
-
-});
+);
 
 };	
 
