@@ -42,7 +42,23 @@ document.getElementById('status').innerHtml='we are not logged in.';}
      js.src = "//connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-</script>
+
+	function login()
+	{
+	FB.login(function(resonse)
+		 {if(response.status==='connected'){
+document.getElementById('status').innerHtml='we are connected.';}
+else if(response.status==='not_authorized')
+{
+document.getElementById('status').innerHtml='we are connected.';	
+}
+else{
+document.getElementById('status').innerHtml='we are not logged in.';}
+	
+	
+	});
+	}
+	</script>
 	
 	
 <div ng-app="myApp" ng-controller="myctrl" ng-model="pnrstatus">
@@ -56,6 +72,7 @@ document.getElementById('status').innerHtml='we are not logged in.';}
   data-show-faces="true">
 </div>
 	<div id="status"></div>
+	<button onclick="login()">LOGIN</button>
 
 <a href="tamplets\pnr.html" >Press If You Want To Know About Pnr</a>
 
