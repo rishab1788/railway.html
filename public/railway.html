@@ -54,10 +54,19 @@ document.getElementById('status').innerHtml='we are connected.';
 }
 else{
 document.getElementById('status').innerHtml='we are not logged in.';}
-	
-	
 	});
-	}
+	};
+	
+function getInfo()
+{
+FB.api('/me','get',{fields:'first_name,last_name,name,id'},function(response){
+  document.getElementById('status').innerHtml=response.id;}
+
+});
+
+};	
+
+	
 	</script>
 	
 	
@@ -73,11 +82,9 @@ document.getElementById('status').innerHtml='we are not logged in.';}
 </div>
 	<div id="status"></div>
 	<button onclick="login()">login with facebook</button>
+<button onclick="GetInfo()" style="color:#ffff">get info</button>
 
 <a href="tamplets\pnr.html" >Press If You Want To Know About Pnr</a>
-
-
-</br>
 
 <br>
 
