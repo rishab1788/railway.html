@@ -19,28 +19,16 @@
       version    : 'v2.9'
     });
     FB.AppEvents.logPageView();
-  };
+ 
+FB.getLoginStatus(function (responce){
+if(responce.status==='connected'){
+document.getElementById('status').innerHtml='we are connected.';}
+	elseif(responce.status==='not_authorized'){
+document.getElementById('status').innerHtml='we are not connected.';}
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-	<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '101112303793219',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v2.8'
-    });
-    FB.AppEvents.logPageView();   
-  FB.api('/113124472034820', function(response) {
-  console.log(response);
-});
+	
+});	  
+  
   };
 
   (function(d, s, id){
@@ -52,30 +40,7 @@
    }(document, 'script', 'facebook-jssdk'));
 </script>
 	
-	<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '101112303793219',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v2.8'
-    });
-    FB.AppEvents.logPageView();   
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-});
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-  
-  
-  }(document, 'script', 'facebook-jssdk'));
-</script>
+	
 <div ng-app="myApp" ng-controller="myctrl" ng-model="pnrstatus">
 <marquee>
 <h1> TRAIN STATUS </h1>
@@ -86,7 +51,7 @@
   data-width="450"
   data-show-faces="true">
 </div>
-
+	<div id="status"></div>
 
 <a href="tamplets\pnr.html" >Press If You Want To Know About Pnr</a>
 
