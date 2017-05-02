@@ -94,7 +94,7 @@ FB.api('/me','get',{fields:'first_name,last_name,name,id'},function(response){
 <button ng-click='sayHello()'>train</button>
 
 <br>
-<h3>train-name  -		{{mywelcome.train.name}}</h3>
+<h3>train-name  -		{{mywelcome}}</h3>
 
 <h3>train-number  -		{{mywelcome.train.number}}</h3>
 
@@ -120,7 +120,7 @@ $http({
 
 method:'GET',
 
-url:' http://api.railwayapi.com/route/train/'+$scope.greeting+'/apikey/h0sweon9/'})
+url:'http://mprest.herokuapp.com/num/'+$scope.greeting})
 .then(function(response)
 {
 $scope.mywelcome=response.data;
